@@ -1,0 +1,85 @@
+INSERT or REPLACE INTO Vehicles(Rego, Make, Model, YearModel, Odometer, Capacity, Transmision, Type,img)
+	VALUES 
+("438•SFD","Toyota","Kluger",2020,899133,7,"Automatic","[Urban Wagon]",'klugger.jpg'),
+("202•XRP","Toyota","Commuter",2020,302161,12,"Automatic","[Small Bus]",'commuter.jpg'),
+("361•CPA","Mitsubishi","Pajero",2020,262816,7,"Automatic","[Premium 4WD]",'pajeroFull4WD.png'),
+("546•YQM","Kia","Carnival",2020,954307,8,"Automatic","[Intermediate Van]",'carnival.jpg'),
+("910•ALD","Mitsubishi","Pajero",2020,982213,7,"Automatic","[Full Size Wagon,Sport]",'pajero_sport.jpg'),
+("717•WWS","Mitsubishi","Outlander",2020,783020,5,"Automatic","[Intermediate Wagon]",'outlander.png'),
+("108•PCK","Mitsubishi","Eclipse Cross",2020,660787,5,"Automatic","[Medium]",'eclipse.png'),
+("557•GLM","Holden","Commodore SV6",2020,401105,5,"Automatic","[Sports, Sedan]",'commodore.jpg'),
+("102•QZX","Mitsubishi","ASX",2020,518747,5,"Automatic","[Compact SUV]",'asx.png'),
+("229•YAG","Toyota","Camry",2020,76356,5,"Automatic","[Sedan]",'camry.jpg'),
+("749•TMI","Toyota","Corolla",2020,596046,5,"Automatic","[Sedan]",'corolla_sedan.png'),
+("838•SAK","KIA","Cerato",2020,67491,5,"Automatic","[Intermediate]",'cerrato.jpg'),
+("845•STB","Toyota","Corolla",2020,953867,5,"Automatic","[Compact Car,Sedan]",'corolla_sedan.png'),
+("232•PHZ","Toyota","Yaris",2020,596542,5,"Automatic","[Economy]",'yaris.jpg'),
+("931•LWK","MG","HS",2020,216511,5,"Automatic","[Compact SUV]",'mg.png'),
+("899•IPV","Mitsubishi","Mirage",2020,948839,5,"Automatic","[Metro]",'mirage.png'),
+("732•FTU","Mitsubishi","Pajero",2020,447986,5,"Automatic","[Full Size 4WD]",'pajeroFull4WD.png'),
+("091•JRX","Suzuki","Jimny",2020,804612,4,"Automatic","[Medium]",'jiminy.jpg'),
+("090•UPA","Toyota","Yaris",2020,328506,5,"Manual","[Economy]",'yaris2.jpg'),
+("291•UID","Toyota","Hilux",2020,218447,5,"Automatic","[4WD, Dual Cab, Utility]",'hilux.png');
+
+
+INSERT or REPLACE INTO Clients(Name, Age, LisenceNo, LicenceType, Gender)
+	VALUES 
+    ("Robbie Stanton",20,"463114561","P2","M"),
+    ("Hubert Haskins",37,"456381499","O","M"),
+    ("Trina Wilkinson",36,"189842264","O","F"),
+    ("Elias Dorsey",66,"541385107","O","M"),
+    ("Raquel Bright",25,"489956400","P2","F"),
+    ("Bert Robbins",40,"848625699","O","M"),
+    ("Mandy Fulton",44,"566816835","O","F"),
+    ("Christi McKee",78,"439787458","O","F"),
+    ("Abigail Hammond",59,"050637716","O","F"),
+    ("Johanna Rivers",57,"400870333","O","F"),
+    ("Tracy Ashley",22,"131637347","P1","F"),
+    ("Meredith Ewing",69,"555502853","O","F"),
+    ("Danny Dalton",43,"496724067","O","M");
+
+
+
+INSERT or REPLACE INTO Bookings(LisenceNo, Rego, Pickup, Dropoff)
+	VALUES 
+    ("463114561","438•SFD","2021-08-30","2021-09-05"),
+    ("456381499","202•XRP","2021-09-06","2021-09-12"),
+    ("189842264","361•CPA","2021-09-13","2021-09-19"),
+    ("131637347","546•YQM","2021-09-20","2021-09-26");
+
+    SELECT C.name,V.make,V.Model
+    FROM vehicles as V, clients as C, bookings as B
+    WHERE B.pickup = "2021-09-06" AND B.lisenceNo = C.lisenceNo AND B.Rego = V.Rego;
+
+    SELECT c.name,V.make,V.Model
+    FROM vehicles as V, clients as C, bookings as B
+    WHERE C.name = "Tracy Ashley" AND B.lisenceNo = C.lisenceNo AND B.rego=V.rego;
+
+    SELECT C.name,C.LisenceNo,B.Pickup,B.Dropoff FROM vehicles as V, clients as C, bookings as B WHERE V.Vehicle_id = ? AND V.Rego = B.Rego
+
+SELECT C.name,C.LisenceNo,B.Pickup,B.Dropoff FROM  clients as C, bookings as B LEFT JOIN vehicles as V ON V.Rego = B.Rego AND V.Vehicle_id = ?;
+
+SELECT title
+FROM blog
+LEFT JOIN article
+ON blog.id = article.blog_id
+AND article.headline LIKE "%Japan%";
+
+SELECT C.name,C.LisenceNo,B.Pickup,B.Dropoff FROM vehicles as V, clients as C, bookings as B WHERE V.Vehicle_id = "1" AND V.Rego = B.Rego;
+
+SELECT C.name,C.LisenceNo,B.Pickup,B.Dropoff
+FROM clients as C
+INNER JOIN Departments ON Students.DepartmentId = Departments.DepartmentId;
+
+SELECT DISTINCT clients.Name,clients.LisenceNo,bookings.Pickup,bookings.Dropoff FROM  vehicles WHERE vehicles.Vehicle_id = 1 IN (SELECT DISTINCT * FROM clients, bookings WHERE vehicles.Rego = bookings.Rego);
+
+SELECT Name,LisenceNo,Pickup,Dropoff FROM vehicles WHERE vehicle.Vehicle_id = 1 IN (SELECT * FROM clients, bookings WHERE clients.LisenceNo = bookings.LisenceNo);
+
+SELECT * FROM vehicles WHERE Vehicle_id = 1 IN (SELECT * FROM clients, bookings WHERE clients.LisenceNo = bookings.LisenceNo);
+
+SELECT Name,LisenceNo,Pickup,Dropoff IN (SELECT * FROM vehicles,bookings WHERE vehicles.rego = bookings.rego AND vehicle_id = 1);
+
+SELECT LisenceNo,Pickup,Dropoff FROM vehicles,bookings WHERE vehicles.rego = bookings.rego AND vehicle_id = 1;
+SELECT * FROM vehicles,bookings WHERE vehicles.rego = bookings.rego AND vehicle_id = 1;
+
+SELECT clients.Name,clients.LisenceNo,Pickup,Dropoff FROM vehicles,bookings,clients WHERE vehicles.rego = bookings.rego AND vehicle_id = 1 AND clients.LisenceNo = bookings.LisenceNo;

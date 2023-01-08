@@ -1,0 +1,56 @@
+CREATE TABLE Client (
+    Name VARCHAR(30),
+    Age INT,
+    LisenceNo STRING PRIMARY KEY,
+    LicenceType VARCHAR(10),
+    Gender INT,
+    Client_id INTEGER AUTOINCREMENT UNIQUE NOT NULL,
+);
+
+INSERT INTO Client(Name, Age, LisenceNo, LicenceType, Gender)
+VALUES
+(Robbie Stanton,20,463114561,P2,M),
+
+(Hubert Haskins,37,456381499,O,M),
+
+(Trina Wilkinson,36,189842264,O,F),
+
+(Tracy Ashley,22,131637347,P1,F),
+
+(Elias Dorsey,66,541385107,O,M),
+
+(Raquel Bright,25,489956400,P2,F),
+
+(Bert Robbins,40,848625699,O,M),
+
+(Mandy Fulton,44,566816835,O,F),
+
+(Christi McKee,78,439787458,O,F),
+
+(Abigail Hammond,59,050637716,O,F),
+
+(Johanna Rivers,57,400870333,O,F),
+
+(Robbie Stanton,20,463114561,P2,M),
+
+(Hubert Haskins,37,456381499,O,M),
+
+(Trina Wilkinson,36,189842264,O,F),
+
+(Tracy Ashley,22,131637347,P1,F),
+
+(Elias Dorsey,66,541385107,O,M),
+
+(Raquel Bright,25,489956400,P2,F),
+
+(Bert Robbins,40,848625699,O,M),
+
+(Mandy Fulton,44,566816835,O,F),
+
+(Christi McKee,78,439787458,O,F),
+
+(Abigail Hammond,59,050637716,O,{F),
+
+(Meredith Ewing,69,555502853,O,F),
+
+(Danny Dalton,43,496724067,O,M);

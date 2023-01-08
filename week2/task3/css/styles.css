@@ -1,0 +1,125 @@
+/* 
+ * Simple, fixed-width, two-column, CSS layout example.
+ * See also index.html.
+ * Adapated from "Online Scrapbooks" by Kathy Pridham.
+ */
+
+ body { color: brown }
+
+ h1, h2, h3, h4, h5, h6 { font-family: sans-serif; color: orange }
+ 
+ #head { text-align: right; border-bottom: 1px solid orange; }
+ 
+ #links {
+     /* width: 150px; float: left;  */
+     background-color: #efff3c;/*#fff93c;*//*rgb(212, 142, 0); */
+     /* margin: 10px; */
+     /*border: 2px solid black;*/
+     /* padding: 10px;  */
+ }
+ 
+ #links a {
+     /* display: block;  */
+     font-family: sans-serif; font-size: 9pt; color: white; 
+ }
+ #links a:link { text-decoration: none; }
+ #links a:visited { text-decoration: none; }
+ #links a:hover { color: black; text-decoration: underline; }
+ #links a:active { text-decoration: none; }
+ #links a.newgroup { margin-top: 15px; }
+ 
+ #main {
+     border-left: 1px solid orange; padding-left: 10px;
+     /* width: 70%; float: left;  */
+ }
+
+ #messageHeader{
+    border-left: 1px solid orange; padding-left: 2px;
+    border-right: 1px solid orange; padding-left: 10px;
+ }
+
+ #commentHeader{
+    border-left: 1px solid rgb(12, 12, 11); padding-left: 2px;
+    border-right: 1px solid rgb(12, 12, 11); padding-left: 10px;
+ }
+
+ .messageBlock{
+     padding-bottom: 1.5rem;
+ }
+
+ .commentBlock{
+    padding-bottom: 0.5rem;
+ }
+ 
+ address {
+     clear: both; 
+     border-top: 1px solid orange;
+     color: orange; 
+     text-align: center; 
+     font-style: normal; font-variant: small-caps; 
+ }
+ 
+#top h5 {
+     padding: 10rem;
+ }
+
+ footer {
+    clear: both; 
+    border-top: 1px solid orange;
+    color: orange; 
+    text-align: center; 
+    font-style: normal; font-variant: small-caps; 
+}
+
+#messages {
+	float: right;
+	width: 320px;
+}
+
+
+.message {
+	margin: 10px;
+	padding: 20px;
+	background-color: rgba(239, 255, 60, 0.329);
+	border-radius: 20px;
+	height: 100px;
+	font-family: Helvetica;
+	font-size: 10pt;
+}
+
+img {
+	max-width: 100px;
+}
+
+.message_image {
+	float: left;
+	width: 100px;
+	margin-right: 20px;
+} 
+
+.message_details {
+	float: right;
+	width: 130px;
+}
+
+.message_name {
+	font-weight: bold;
+}
+
+.message_description {
+	
+}
+
+.message_price {
+	position: relative;
+	top: 10px;
+	font-weight: bold;
+	font-size: 12pt;
+	color: #F00;
+}
+ /* img.logo{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+  } */

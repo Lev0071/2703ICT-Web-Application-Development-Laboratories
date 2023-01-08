@@ -1,0 +1,95 @@
+a) Which stock has Sally ordered?
+
+select * from Stock
+Id|Name|Quantity|Price|Description
+1|Marcel's Morsels|1500|1.25|Delectable delicious delicacies
+2|Fred's Fries|1000|0.75|Fabulous french fries
+3|Craig's Cabbages|500|15|Cool & crazy cabbages
+
+select * from Orders
+Id|ItemId|CustId|OrderDate|Quantity
+1|1|1|2006-03-22|10
+2|1|3|2006-03-23|20
+3|2|2|2006-03-24|30
+4|2|3|2006-03-24|40
+
+select * from Customers;
+Id|Name|Address|Email
+1|Bob|123 Fake St, Logan|bob@someisp.com
+2|Sally|1000 Fun St, Nathan|sally@gmail.com
+3|John|700 Friendly St, Woodridge|john@anotherisp.com
+
+---------------
+Customers;
+Id|Name|Address|Email
+2|Sally|1000 Fun St, Nathan|sally@gmail.com
+
+
+Orders
+Id|ItemId|CustId|OrderDate|Quantity
+3|2|2|2006-03-24|30
+
+select * from Stock
+Id|Name|Quantity|Price|Description
+1|Marcel's Morsels|1500|1.25|Delectable delicious delicacies
+2|Fred's Fries|1000|0.75|Fabulous french fries
+3|Craig's Cabbages|500|15|Cool & crazy cabbages
+
+ANSWER
+
+SELECT Stock.name
+FROM Stock,Customers,Orders
+WHERE Customers.id = Orders.CustId
+AND Orders.ItemId = Stock.id
+AND Customers.name = "Sally";
+
+
+b) What are the names of customers who live in Nathan?
+
+
+select * from Customers;
+Id|Name|Address|Email
+1|Bob|123 Fake St, Logan|bob@someisp.com
+2|Sally|1000 Fun St, Nathan|sally@gmail.com
+3|John|700 Friendly St, Woodridge|john@anotherisp.com
+
+ANSWER
+
+SELECT Customers.Name
+FROM Customers
+WHERE address LIKE "%Nathan%";
+
+
+c) What are the names of customers who have bought Marcel’s Morsels? Note: there is
+a small catch here where you need to deal with ‘ in the string.
+
+select * from Stock
+Id|Name|Quantity|Price|Description
+1|Marcel's Morsels|1500|1.25|Delectable delicious delicacies
+
+
+select * from Orders
+Id|ItemId|CustId|OrderDate|Quantity
+1|1|1|2006-03-22|10
+2|1|3|2006-03-23|20
+
+
+select * from Customers;
+Id|Name|Address|Email
+1|Bob|123 Fake St, Logan|bob@someisp.com                      ---*****
+2|Sally|1000 Fun St, Nathan|sally@gmail.com
+3|John|700 Friendly St, Woodridge|john@anotherisp.com         ---*****
+
+SELECT Customers.Name
+FROM Stock,Orders,Customers
+WHERE Stock.name = "Marcel's Morsels"
+AND Stock.id = Orders.ItemId
+AND Orders.CustId = Customers.Id;
+
+OR
+
+SELECT C.name
+FROM Stock as S,Orders as O,Customers as C
+WHERE S.id = 1 
+AND S.id = O.ItemId
+AND O.CustId = C.Id;

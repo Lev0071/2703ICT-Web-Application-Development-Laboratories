@@ -1,0 +1,26 @@
+Task 2
+
+a) What are the titles of all blogs with "Japan" in the title?
+
+SELECT title
+FROM blog
+WHERE title LIKE "%Japan%";
+
+b) What are the titles of all blogs that contain an article with "Japan" in the headline?
+
+SELECT title
+FROM blog, article
+WHERE blog.id = article.blog_id
+AND article.headline LIKE "%Japan%";
+
+SELECT title
+FROM blog
+LEFT JOIN article
+ON blog.id = article.blog_id
+AND article.headline LIKE "%Japan%";
+
+c) What are the titles of all blogs that contain an article written by the blog creator?
+
+SELECT blog.title
+FROM blog, article
+WHERE article.author = blog.creator and article.id = blog.blog_id;

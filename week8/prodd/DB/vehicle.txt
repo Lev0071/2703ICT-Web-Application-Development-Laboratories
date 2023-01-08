@@ -1,0 +1,35 @@
+CREATE TABLE Vehicle (
+    Rego STRING PRIMARY KEY,
+    Vehicle_id INTEGER AUTOINCREMENT UNIQUE NOT NULL,
+    Make VARCHAR(10),
+    Model VARCHAR(10),
+    Year INT,
+    Odometer INT,
+    Capacity INT,
+    Transmision VARCHAR(1),
+    Type VARCHAR(50)
+);
+
+INSERT INTO Vehicle(Rego, Make, Model, Year, Odometer, Capacity, Transmision, Type)
+VALUES
+(438•SFD,Toyota,Kluger,2020,OOOOO,7,Automatic,[Urban Wagon]),
+(202•XRP,Toyota,Commuter,2020,OOOOO,12,Automatic,[Small Bus]),
+(361•CPA,Mitsubishi,Pajero,2020,OOOOO,7,Automatic,[Premium 4WD]),
+(546•YQM,Kia,Carnival,2020,OOOOO,8,Automatic,[Intermediate Van]),
+(910•ALD,Mitsubishi,Pajero,2020,OOOOO,7,Automatic,[Full Size Wagon,Sport]),
+(717•WWS,Mitsubishi,Outlander,2020,OOOOO,5,Automatic,[Intermediate Wagon]),
+(108•PCK,Mitsubishi,Eclipse Cross,2020,OOOOO,5,Automatic,[Medium]),
+(557•GLM,Holden,Commodore SV6,2020,OOOOO,5,Automatic,[Sports, Sedan]),
+(102•QZX,Mitsubishi,ASX,2020,OOOOO,5,Automatic,[Compact SUV]),
+(229•YAG,Toyota,Camry,2020,OOOOO,5,Automatic,[Sedan]),
+(749•TMI,Toyota,Corolla,2020,OOOOO,5,Automatic,[Sedan]),
+(838•SAK,KIA,Cerato,2020,OOOOO,5,Automatic,[Intermediate]),
+(845•STB,Toyota,Corolla,2020,OOOOO,5,Automatic,[Compact Car,Sedan]),
+(232•PHZ,Toyota,Yaris,2020,OOOOO,5,Automatic,[Economy]),
+(931•LWK,MG,HS,2020,OOOOO,5,Automatic,[Compact SUV]),
+(899•IPV,Mitsubishi,Mirage,2020,OOOOO,5,Automatic,[Metro]),
+(732•FTU,Mitsubishi,Pajero,2020,OOOOO,5,Automatic,[Full Size 4WD]),
+(091•JRX,Suzuki,Jimny,2020,OOOOO,4,Automatic,[Medium]),
+(090•UPA,Toyota,Yaris,2020,OOOOO,5,Manual,[Economy]),
+(291•UID,Toyota,Hilux,2020,OOOOO,5,Automatic,[4WD, Dual Cab, Utility]);
+
